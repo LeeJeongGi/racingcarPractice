@@ -8,7 +8,7 @@ public class CarTest {
 
     @Test
     void 자동차_전진() {
-        Car car = new Car(0);
+        Car car = Car.from(Location.from(0));
 
         car.move(() -> true);
 
@@ -17,7 +17,7 @@ public class CarTest {
 
     @Test
     void 자동차_정지() {
-        Car car = new Car(0);
+        Car car = Car.from(Location.from(0));
         car.move(() -> false);
 
         assertThat(car.getLocation()).isEqualTo(0);

@@ -8,19 +8,23 @@ public class Car {
 
     private static Random random = new Random();
 
-    private static int location;
+    private static Location location;
 
-    public Car (int location) {
+    private Car (Location location) {
         this.location = location;
+    }
+
+    public static Car from(Location location) {
+        return new Car(location);
     }
 
     public void move(MovingStrategy movingStrategy) {
         if(movingStrategy.movable()) {
-            this.location++;
+            this.location.increase();
         }
     }
 
     public static int getLocation() {
-        return location;
+        return location.getLocation();
     }
 }
