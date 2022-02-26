@@ -10,9 +10,13 @@ public class Cars {
 
     private static MovingStrategy movingStrategy = new CarMovingStrategy();
 
-    private static List<Car> cars = new ArrayList<>();
+    private List<Car> cars = new ArrayList<>();
 
     private Cars(int inputValue) {
+
+        if(inputValue > 5) {
+            throw new IllegalArgumentException("경주용 자동차는 5대 초과해서 생성 할 수 없습니다.");
+        }
 
         for(int i = 0; i < inputValue; i++) {
             cars.add(Car.from(Location.from(0)));
@@ -24,7 +28,7 @@ public class Cars {
         return new Cars(inputValue);
     }
 
-    public List<Car> startRace() {
+    public void startRace() {
 
         List<Car> moveCars = this.getCars();
 
@@ -32,7 +36,6 @@ public class Cars {
             moveCars.get(i).move(movingStrategy.movable());
         }
 
-        return cars;
     }
 
     public int size() {
