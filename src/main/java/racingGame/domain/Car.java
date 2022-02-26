@@ -8,7 +8,7 @@ public class Car {
 
     private static Random random = new Random();
 
-    private static Location location;
+    private Location location;
 
     private Car (Location location) {
         this.location = location;
@@ -24,7 +24,7 @@ public class Car {
         }
     }
 
-    public static int getLocation() {
+    public int getLocation() {
         return location.getLocation();
     }
 }

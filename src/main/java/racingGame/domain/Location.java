@@ -2,7 +2,7 @@ package racingGame.domain;
 
 public class Location {
 
-    private static int location;
+    private int location;
 
     private Location(int location) {
         this.location = location;
@@ -12,7 +12,7 @@ public class Location {
         return new Location(location);
     }
 
-    public static int getLocation() {
+    public int getLocation() {
         return location;
     }
 
