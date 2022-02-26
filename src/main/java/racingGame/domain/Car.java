@@ -18,8 +18,8 @@ public class Car {
         return new Car(location);
     }
 
-    public void move(MovingStrategy movingStrategy) {
-        if(movingStrategy.movable()) {
+    public void move(boolean decisionMove) {
+        if(decisionMove) {
             this.location.increase();
         }
     }
