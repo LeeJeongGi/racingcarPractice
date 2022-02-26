@@ -8,20 +8,21 @@ import java.util.List;
 
 public class Cars {
 
+    private static final String CarsNumOverMsg = "경주용 자동차는 5대 초과해서 생성 할 수 없습니다.";
+    private static final int Cars_MAX_NUM = 5;
     private static MovingStrategy movingStrategy = new CarMovingStrategy();
 
     private List<Car> cars = new ArrayList<>();
 
     private Cars(int inputValue) {
 
-        if(inputValue > 5) {
-            throw new IllegalArgumentException("경주용 자동차는 5대 초과해서 생성 할 수 없습니다.");
+        if(inputValue > Cars_MAX_NUM) {
+            throw new IllegalArgumentException(CarsNumOverMsg);
         }
 
         for(int i = 0; i < inputValue; i++) {
             cars.add(Car.from(Location.from(0)));
         }
-
     }
 
     public static Cars from(int inputValue) {
