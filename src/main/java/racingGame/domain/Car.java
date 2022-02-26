@@ -8,7 +8,7 @@ public class Car {
 
     private static Random random = new Random();
 
-    private static Location location;
+    private Location location;
 
     private Car (Location location) {
         this.location = location;
@@ -18,13 +18,13 @@ public class Car {
         return new Car(location);
     }
 
-    public void move(MovingStrategy movingStrategy) {
-        if(movingStrategy.movable()) {
+    public void move(boolean decisionMove) {
+        if(decisionMove) {
             this.location.increase();
         }
     }
 
-    public static int getLocation() {
+    public int getLocation() {
         return location.getLocation();
     }
 }
