@@ -1,7 +1,5 @@
 package racingGame.domain;
 
-import racingGame.service.MovingStrategy;
-
 import java.util.Random;
 
 public class Car {
