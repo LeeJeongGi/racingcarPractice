@@ -1,9 +1,14 @@
 package racingGame.controller;
 
+import racingGame.domain.Car;
 import racingGame.domain.Cars;
 import racingGame.domain.Round;
+import racingGame.domain.User;
 import racingGame.view.InputView;
 import racingGame.view.OutputView;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingGame {
 
@@ -12,7 +17,12 @@ public class RacingGame {
         InputView inputView = new InputView();
         OutputView outputView = new OutputView();
 
-        Cars cars = Cars.from(inputView.inputOfCar());
+        List<User> users = inputView.inputOfUser();
+        List<Car> carList = users.stream()
+                            .map(Car::from)
+                            .collect(Collectors.toList());
+
+        Cars cars = Cars.from(carList);
         Round round = new Round(inputView.inputOfAttempts());
 
         outputView.resultInsert();

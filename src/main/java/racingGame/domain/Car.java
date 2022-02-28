@@ -1,7 +1,5 @@
 package racingGame.domain;
 
-import racingGame.service.MovingStrategy;
-
 import java.util.Random;
 
 public class Car {
@@ -9,13 +7,15 @@ public class Car {
     private static Random random = new Random();
 
     private Location location;
+    private User user;
 
-    private Car (Location location) {
+    private Car (Location location, User user) {
         this.location = location;
+        this.user = user;
     }
 
-    public static Car from(Location location) {
-        return new Car(location);
+    public static Car from(User user) {
+        return new Car(Location.from(0), user);
     }
 
     public void move(boolean decisionMove) {
@@ -26,5 +26,9 @@ public class Car {
 
     public int getLocation() {
         return location.getLocation();
+    }
+
+    public String getUser() {
+        return user.getName();
     }
 }

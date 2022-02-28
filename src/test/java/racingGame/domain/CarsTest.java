@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -15,7 +16,11 @@ public class CarsTest {
 
     @BeforeEach
     void setUp() {
-        cars = Cars.from(3);
+        List<Car> cars1 = new ArrayList<>();
+        cars1.add(Car.from(User.from("test1")));
+        cars1.add(Car.from(User.from("test2")));
+        cars1.add(Car.from(User.from("test3")));
+        cars = Cars.from(cars1);
     }
 
     @Test
@@ -39,7 +44,17 @@ public class CarsTest {
     @Test
     @DisplayName("5대 이상 입력했을 때 예외 처리")
     void countOfOverExceptionTest() {
+
+        List<Car> cars1 = new ArrayList<>();
+        cars1.add(Car.from(User.from("test1")));
+        cars1.add(Car.from(User.from("test2")));
+        cars1.add(Car.from(User.from("test3")));
+        cars1.add(Car.from(User.from("test3")));
+        cars1.add(Car.from(User.from("test3")));
+        cars1.add(Car.from(User.from("test3")));
+        cars1.add(Car.from(User.from("test3")));
+
         assertThatThrownBy(() ->
-                Cars.from(6)).isInstanceOf(IllegalArgumentException.class);
+                Cars.from(cars1)).isInstanceOf(IllegalArgumentException.class);
     }
 }
