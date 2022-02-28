@@ -9,13 +9,17 @@ public class User {
 
     private String name;
 
-    public User(String name) {
+    private User(String name) {
 
         if(name.length() > NAME_LENGTH_MAX) {
             throw new IllegalArgumentException(NAME_OVER_SIZE_EXCEPTION);
         }
 
         this.name = name;
+    }
+
+    public static User from(String name) {
+        return new User(name);
     }
 
     @Override

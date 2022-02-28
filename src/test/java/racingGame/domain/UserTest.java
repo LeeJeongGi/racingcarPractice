@@ -10,15 +10,15 @@ public class UserTest {
 
     @Test
     void 생성_테스트() {
-        User user = new User("pobi");
+        User user = User.from("pobi");
 
-        assertThat(user).isEqualTo(new User("pobi"));
+        assertThat(user).isEqualTo(User.from("pobi"));
     }
 
     @Test
     @DisplayName("이름은 5글자를 초과 할 수 없다")
     void nameLengthOverTest() {
         assertThatThrownBy(() ->
-                new User("jeonggi")).isInstanceOf(IllegalArgumentException.class);
+                User.from("jeonggi")).isInstanceOf(IllegalArgumentException.class);
     }
 }

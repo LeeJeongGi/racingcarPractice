@@ -21,7 +21,7 @@ public class Cars {
         }
 
         for(int i = 0; i < inputValue; i++) {
-            cars.add(Car.from(Location.from(0)));
+            cars.add(Car.from(Location.from(0), User.from("lee")));
         }
     }
 
