@@ -26,7 +26,9 @@ public class OutputView {
 
     private void printCarMovingResult(Car car) {
         int position = car.getLocation();
-        System.out.print(REMARK);
+        String userName = car.getUser();
+
+        System.out.print(userName + " : " + REMARK);
         for(int j = 0; j < position; j++) {
             System.out.print(REMARK);
         }

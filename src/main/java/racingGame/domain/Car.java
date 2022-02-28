@@ -14,8 +14,8 @@ public class Car {
         this.user = user;
     }
 
-    public static Car from(Location location, User user) {
-        return new Car(location, user);
+    public static Car from(User user) {
+        return new Car(Location.from(0), user);
     }
 
     public void move(boolean decisionMove) {
@@ -26,5 +26,9 @@ public class Car {
 
     public int getLocation() {
         return location.getLocation();
+    }
+
+    public String getUser() {
+        return user.getName();
     }
 }

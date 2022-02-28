@@ -14,19 +14,17 @@ public class Cars {
 
     private List<Car> cars = new ArrayList<>();
 
-    private Cars(int inputValue) {
+    private Cars(List<Car> cars) {
 
-        if(inputValue > Cars_MAX_NUM) {
+        if(cars.size() > Cars_MAX_NUM) {
             throw new IllegalArgumentException(CarsNumOverMsg);
         }
 
-        for(int i = 0; i < inputValue; i++) {
-            cars.add(Car.from(Location.from(0), User.from("lee")));
-        }
+        this.cars = cars;
     }
 
-    public static Cars from(int inputValue) {
-        return new Cars(inputValue);
+    public static Cars from(List<Car> cars) {
+        return new Cars(cars);
     }
 
     public void startRace() {
