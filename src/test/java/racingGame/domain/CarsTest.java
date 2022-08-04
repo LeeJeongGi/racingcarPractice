@@ -34,9 +34,9 @@ public class CarsTest {
     void racingStartTest() {
         List<Car> carList = cars.getCars();
 
-       carList.get(0).move(true);
-       carList.get(1).move(false);
-       carList.get(2).move(false);
+        carList.get(0).move(true);
+        carList.get(1).move(false);
+        carList.get(2).move(false);
 
         assertThat(carList.get(0).getLocation()).isEqualTo(1);
     }
@@ -56,5 +56,20 @@ public class CarsTest {
 
         assertThatThrownBy(() ->
                 Cars.from(cars1)).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    @DisplayName("최종 우승자를 가리기")
+    void maxOfLocation() {
+
+        List<Car> carList = cars.getCars();
+
+        carList.get(0).move(true);
+        carList.get(0).move(true);
+        carList.get(1).move(true);
+        carList.get(2).move(false);
+
+        String result = cars.getVictoryUserName();
+
     }
 }
