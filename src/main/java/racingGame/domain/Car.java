@@ -18,6 +18,10 @@ public class Car {
         return new Car(Location.from(0), user);
     }
 
+    public static Car from(Location location, User user) {
+        return new Car(location, user);
+    }
+
     public void move(boolean decisionMove) {
         if(decisionMove) {
             this.location.increase();

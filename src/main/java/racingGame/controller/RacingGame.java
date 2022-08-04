@@ -1,12 +1,10 @@
 package racingGame.controller;
 
-import racingGame.domain.Car;
-import racingGame.domain.Cars;
-import racingGame.domain.Round;
-import racingGame.domain.User;
+import racingGame.domain.*;
 import racingGame.view.InputView;
 import racingGame.view.OutputView;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,6 +22,7 @@ public class RacingGame {
 
         Cars cars = Cars.from(carList);
         Round round = new Round(inputView.inputOfAttempts());
+        Records records;
 
         outputView.resultInsert();
         while (round.isNotEnd()) {
