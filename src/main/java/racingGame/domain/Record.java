@@ -10,7 +10,7 @@ public class Record {
         this.cars = cars;
     }
 
-    public static Record from(Round round, Cars from) {
+    public static Record from(Round round, Cars cars) {
         return new Record(round, cars);
     }
 

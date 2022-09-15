@@ -4,7 +4,6 @@ import racingGame.domain.*;
 import racingGame.view.InputView;
 import racingGame.view.OutputView;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,6 +28,7 @@ public class RacingGame {
             cars.startRace();
             outputView.roundResult(cars);
         }
+//        outputView.finalResult(records);
 
     }
 }
