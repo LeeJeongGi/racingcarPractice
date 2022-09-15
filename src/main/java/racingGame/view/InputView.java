@@ -1,6 +1,5 @@
 package racingGame.view;
 
-import racingGame.domain.Car;
 import racingGame.domain.User;
 
 import java.util.Arrays;
